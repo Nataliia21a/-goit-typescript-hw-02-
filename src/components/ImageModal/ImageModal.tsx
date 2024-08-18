@@ -1,11 +1,18 @@
 import Modal from "react-modal";
 
+type Props = {
+  isOpen: boolean;
+  selectedImageUrl: string;
+  altText: string;
+  onRequestClose: () => void;
+};
+
 export default function ImageModal({
   isOpen,
   selectedImageUrl,
   altText,
   onRequestClose,
-}) {
+}: Props) {
   return (
     <Modal
       // shouldCloseOnEsc={true}

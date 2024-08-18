@@ -1,7 +1,16 @@
 import css from "../ImageGallery/ImageGallery.module.css";
 import ImageCard from "../ImageCard/ImageCard";
 
-export default function ImageGallery({ images, openModal }) {
+type Props = {
+  images: {
+    id: string;
+    urls: { small: string; regular: string };
+    alt_description: string;
+  }[];
+  openModal: (imageModalUrl: string, imageAltText: string) => void;
+};
+
+export default function ImageGallery({ images, openModal }: Props) {
   return (
     <ul className={css.gallery}>
       {images.map((image) => (
@@ -12,9 +21,6 @@ export default function ImageGallery({ images, openModal }) {
             imageModalSrc={image.urls.regular}
             openModal={openModal}
           />
-          {/* <div>
-            <img src={image.urls.small} alt={image.alt_description} />
-          </div> */}
         </li>
       ))}
     </ul>
